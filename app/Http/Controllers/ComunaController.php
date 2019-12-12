@@ -25,6 +25,7 @@ class ComunaController extends Controller
                     
 
         return view('comuna.index', compact('comunas'));
+       //return $comunas;
     }
 
     /**
@@ -55,10 +56,12 @@ class ComunaController extends Controller
         ]);
 
         $comuna = new Comuna;
+        
         $comuna->comu_nomb = $request->comu_nomb;
         $comuna->muni_codi = $request->muni_codi;
         $comuna->save();
         return redirect()->route('comuna.index')->with('status','guardado');
+        
     }
 
     /**
@@ -98,6 +101,7 @@ class ComunaController extends Controller
         $comuna->fill($request->all());
         $comuna->save();
         return redirect()->route('comuna.index')->with('status','actualizado');
+        //return $request;
 
     }
 

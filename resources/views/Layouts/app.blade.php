@@ -12,7 +12,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-primary">
-		<a href="#" class="navbar-brand">Person@s</a>
+		<a href="#" class="navbar-brand">Person@s | Diplomado</a>
 	</nav>
 
 	<div class="container">
