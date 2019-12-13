@@ -22,8 +22,8 @@
 							<select name='muni_codi' class = 'form-control'>
 								<option value="">Seleccione uno ... </option>
 								@foreach($municipios as $municipio)
-									@if($comuna->muni_codi == $municipio->muni_codi)
-										<option selected value = '{{ $municipio->muni_codi }}'> {{ $municipio->muni_nomb }} </option>
+									@if(old('muni_codi'))
+										<option value = '{{ $municipio->muni_codi }}' {{(old('muni_codi') == $municipio->muni_codi) ? 'selected':''}}>{{ $municipio->muni_nomb }}</option>
 									@else
 									<option value = '{{ $municipio->muni_codi }}' 
 										{{(old('muni_codi') == $municipio->muni_codi) ? 'selected':''}}>{{ $municipio->muni_nomb }}

@@ -1,0 +1,37 @@
+npm install
+npm run dev
+npm run watch
+npm run prod
+
+npm remove bootstrap
+npm add  bootstrap --dev
+
+php artisan tinker
+
+factory('App\User')->create()
+
+str_random(60)
+
+$user = App\User::where('email', 'pepito@gmail.com')->first();
+
+$user->password = Hash::make('thanhnd123');
+$user->password = Hash::make('pepito123');
+$user->save()
+
+
+ public function __Construct(){
+        $this->middleware('auth');
+    }
+
+Auth::routes('register' => false);
+
+ $this->middleware('auth')->only('create');
+ $this->middleware('auth')->except('index');
+
+npm install --save-dev @fortawesome/fontawesome-free 
+
+$fa-font-path : "../webfonts";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss"
+@import "~@fortawesome/fontawesome-free/scss/solid.scss"
+@import "~@fortawesome/fontawesome-free/scss/brands.scss"
