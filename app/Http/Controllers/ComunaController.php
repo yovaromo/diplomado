@@ -97,6 +97,12 @@ class ComunaController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        request()->validate([
+            'comu_nomb' => 'required|min:5',
+            'muni_codi' => 'required'
+        ]);
+        
         $comuna = Comuna::findOrFail($id);
         $comuna->fill($request->all());
         $comuna->save();
