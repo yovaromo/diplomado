@@ -23,6 +23,7 @@ class ComunaController extends Controller
                     ->select('c.comu_codi','c.comu_nomb','c.muni_codi','tb_municipio.muni_nomb')
                     ->paginate(10);
                     
+                    
 
         return view('comuna.index', compact('comunas'));
        //return $comunas;
@@ -97,6 +98,10 @@ class ComunaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'comu_nomb' => 'required|min:5',
+            'muni_codi' => 'required'
+        ]);
         $comuna = Comuna::findOrFail($id);
         $comuna->fill($request->all());
         $comuna->save();

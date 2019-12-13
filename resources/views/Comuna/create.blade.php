@@ -21,7 +21,7 @@
 					@csrf			
 					<div class="form-group">
 						<label for="comuna">Comuna</label>
-						<input type="text" class="form-control" name="comu_nomb" id="comu_nomb" value= {{old('comu_nomb')}}>
+						<input type="text" class="form-control" name="comu_nomb" id="comu_nomb" value= "{{old('comu_nomb')}}">
 						{!! $errors->first('comu_nomb', '<div class="alert alert-danger" role="alert">:message</div>')!!}
 					</div>
 					<div class="form-group">
@@ -29,7 +29,9 @@
 						<select name='muni_codi' class = 'form-control'>
 							<option value="">Seleccione uno ... </option>
 							@foreach($municipios as $municipio)
-								<option value = '{{ $municipio->muni_codi }}' {{(old('muni_codi') == $municipio->muni_codi) ? 'selected':''}}>{{ $municipio->muni_nomb }}</option>								
+								<option value = '{{ $municipio->muni_codi }}' 
+									{{(old('muni_codi') == $municipio->muni_codi) ? 'selected':''}}>{{ $municipio->muni_nomb }}
+								</option>								
 							@endforeach
 						</select>
 						{!! $errors->first('muni_codi', '<div class="alert alert-danger" role="alert">:message</div>')!!}
