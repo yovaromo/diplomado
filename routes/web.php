@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::resource('comuna', 'ComunaController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

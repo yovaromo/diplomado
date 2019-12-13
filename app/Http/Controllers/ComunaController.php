@@ -11,6 +11,10 @@ use App\Municipio;
 
 class ComunaController extends Controller
 {
+
+    public function __Construct(){
+        $this->middleware('auth')->except('index');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -36,6 +40,7 @@ class ComunaController extends Controller
     public function create()
     {
         //
+        
         $municipios = Municipio::orderBy('muni_nomb')->get();
         return view('comuna.create',compact('municipios'));
     }
@@ -83,6 +88,7 @@ class ComunaController extends Controller
      */
     public function edit($id)
     {
+
         $comuna = Comuna::findOrFail($id);
         $municipios = Municipio::orderBy('muni_nomb')->get();
         return view('comuna.edit', compact('comuna','municipios'));
@@ -98,11 +104,12 @@ class ComunaController extends Controller
     public function update(Request $request, $id)
     {
 
+
         request()->validate([
             'comu_nomb' => 'required|min:5',
             'muni_codi' => 'required'
         ]);
-        
+
         $comuna = Comuna::findOrFail($id);
         $comuna->fill($request->all());
         $comuna->save();
